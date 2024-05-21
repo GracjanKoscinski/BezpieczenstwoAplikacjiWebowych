@@ -16,8 +16,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./lab04/lab04
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
+        with:
+          command: test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        working-directory: ./lab04/lab04
