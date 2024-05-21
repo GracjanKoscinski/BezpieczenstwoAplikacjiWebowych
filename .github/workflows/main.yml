@@ -15,13 +15,9 @@ jobs:
           node-version: '14' # specify your Node.js version
 
       - name: Install dependencies
-        run: npm install
-        working-directory: ./lab04/lab04
+        run: cd lab04/lab04 && npm install
 
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        with:
-          command: test
+        run: cd lab04/lab04 && snyk test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        working-directory: ./lab04/lab04
