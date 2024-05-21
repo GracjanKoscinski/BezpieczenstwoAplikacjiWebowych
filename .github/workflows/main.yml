@@ -14,6 +14,9 @@ jobs:
         with:
           node-version: '14' # specify your Node.js version
 
+      - name: Install Snyk
+        run: npm install -g snyk
+
       - name: Install dependencies
         run: cd lab04/lab04 && npm install
 
